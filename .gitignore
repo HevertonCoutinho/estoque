@@ -3,4 +3,5 @@ venv/
 env/
 .env
 .sqlite3
+db.sqlite3
 .py[code]
