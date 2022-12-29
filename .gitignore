@@ -1,0 +1,6 @@
+issues
+venv/
+env/
+.env
+.sqlite3
+.py[code]
