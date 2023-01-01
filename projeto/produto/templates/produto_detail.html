@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <a href="{% url 'produto:produto_list' %}">Voltar</a>
+    <h1>{{ object }}
+        <span class="pull-right">
+            <a href="">
+                <button type="button" class="btn btn-success">
+                    <span class="fa fa-pencil">Editar</span>
+                </button>
+            </a>
+        </span>
+    </h1>
+    <div class="col-sm-6">
+        <table class="table table-user-information">
+            <tbody>
+                <tr>
+                    <th class="text-rigth">Importado</th>
+                    <td>
+                        {% if object.importado %}
+                            <i class ="fa fa-check-circle ok"></i>
+                        {% else %}
+                            <i class ="fa fa-minus-circle no"></i>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-rigth">NCM</th>
+                    <td>{{ object.ncm }}</td>
+                </tr>
+                <tr>
+                    <th class="text-rigth">Preço</th>
+                    <td>R$ {{ object.preco }}</td>
+                </tr>
+                <tr>
+                    <th class="text-rigth">Estoque</th>
+                    <td>{{ object.estoque }}</td>
+                </tr>
+                <tr>
+                    <th class="text-rigth">Estoque Mínimo</th>
+                    <td>{{ object.estoque_minimo }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
