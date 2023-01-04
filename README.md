@@ -41,3 +41,4 @@
 [form-inline](http://felipefrizzo.github.io/post/form-inline/)
 
 [form-inline-cbv](http://felipefrizzo.github.io/post/form-inline-cbv/)
+
