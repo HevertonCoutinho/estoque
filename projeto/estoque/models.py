@@ -1,9 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse_lazy
-
 from projeto.core.models import TimeStampedModel
 from projeto.produto.models import Produto
+from .managers import EstoqueEntradaManager, EstoqueSaidaManager
 
 MOVIMENTO = (
     ('e', 'entrada'),
@@ -26,12 +26,6 @@ class Estoque(TimeStampedModel):
     
     def nf_formated(self):
         return str(self.nf).zfill(3)
-    
-class EstoqueEntradaManager(models.Manager):
-
-    def get_queryset(self):
-        return super(EstoqueEntradaManager, self).get_queryset().filter(movimento='e')
-
 
 class EstoqueEntrada(Estoque):
 
@@ -41,13 +35,6 @@ class EstoqueEntrada(Estoque):
         proxy = True
         verbose_name = 'estoque entrada'
         verbose_name_plural = 'estoque entrada'
-
-
-class EstoqueSaidaManager(models.Manager):
-
-    def get_queryset(self):
-        return super(EstoqueSaidaManager, self).get_queryset().filter(movimento='s')
-
 
 class EstoqueSaida(Estoque):
 
